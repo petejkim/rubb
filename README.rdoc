@@ -1,0 +1,37 @@
+= RuBB
+
+BBCode Parser for Ruby.
+
+RuBB parses BBCode by generating a parse tree, so it is able to handle nested BBCode tags properly.
+
+== Usage
+
+  RuBB.to_html('[b]hello[/b]')
+  
+  '[b]hello[/b]'.to_html
+
+== BBCode Tags
+
+RuBB supports the following BBCode tags:
+
+  [b]text[/b]
+  [i]text[/i]
+  [u]text[/u]
+  [s]text[/s]
+  [size=10]text[/size]
+  [color=#ff0000]text[/color]
+  [center]text[/center]
+  [quote]text[/quote]
+  [quote=someone]text[/quote]
+  [url]http://github.com/petejkim/rubb/[/url]
+  [url=http://github.com/petejkim/rubb/]RuBB[/url]
+  [img]http://test.com/test.jpg[/img]
+  [img=640x480]http://test.com/test.jpg[/img]
+  [ul][li]text[/li][/ul]
+  [ol][li]text[/li][/ol]
+  [code]text[/code]
+  [table][tr][th]text[/th][/tr][tr][td]text[/td][/tr][/table]
+
+== Copyright
+
+Copyright (c) 2010 Peter Jihoon Kim. See LICENSE for details.
