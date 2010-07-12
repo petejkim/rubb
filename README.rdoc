@@ -4,11 +4,15 @@ BBCode Parser for Ruby.
 
 RuBB parses BBCode by generating a parse tree, so it is able to handle nested BBCode tags properly.
 
+== Install
+
+  gem install rubb
+
 == Usage
 
   RuBB.to_html('[b]hello[/b]')
   
-  '[b]hello[/b]'.to_html
+  '[b]hello[/b]'.bb_to_html
 
 == BBCode Tags
 
