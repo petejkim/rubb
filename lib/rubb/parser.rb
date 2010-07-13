@@ -41,15 +41,17 @@ module RuBB
         when 'ul', 'ol', 'li', 'table', 'tr', 'th', 'td'
           Node::Simple.new(:html_tag_name => current_tag_name)
         when 'size'
-          Node::Styled.new(:style_hash => {'font-size' => (extra_params[:param] ? extra_params[:param].to_f.to_s + 'px' : nil)})
+          Node::Styled.new(:html_tag_name => 'span', 
+                           :style_hash => {'font-size' => (extra_params[:param] ? extra_params[:param].to_f.to_s + 'px' : nil)})
         when 'color'
-          Node::Styled.new(:style_hash => {'color' => (extra_params[:param] ? extra_params[:param].to_s : nil)})
+          Node::Styled.new(:html_tag_name => 'span', 
+                           :style_hash => {'color' => (extra_params[:param] ? extra_params[:param].to_s : nil)})
         when 'left'
-          Node::Styled.new(:style_hash => {'text-align' => 'left'})
+          Node::Styled.new(:html_tag_name => 'div', :style_hash => {'text-align' => 'left'})
         when 'center'
-          Node::Styled.new(:style_hash => {'text-align' => 'center'})
+          Node::Styled.new(:html_tag_name => 'div', :style_hash => {'text-align' => 'center'})
         when 'right'
-          Node::Styled.new(:style_hash => {'text-align' => 'right'})
+          Node::Styled.new(:html_tag_name => 'div', :style_hash => {'text-align' => 'right'})
         when 'quote'
           Node::Quote.new(:who => (extra_params[:param] ? extra_params[:param].to_s : ''))
         when 'url'

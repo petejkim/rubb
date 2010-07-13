@@ -26,9 +26,9 @@ RuBB supports the following BBCode tags:
   [size=10]text[/size]        => <span style="font-size: 10px;">text</span>
   [color=#ff0000]text[/color] => <span style="color: #ff0000;">text</span>
   
-  [left]text[/left]     => <span style="text-align: left;">text</span>
-  [center]text[/center] => <span style="text-align: center;">text</span>
-  [right]text[/right]   => <span style="text-align: right;">text</span>
+  [left]text[/left]     => <div style="text-align: left;">text</div>
+  [center]text[/center] => <div style="text-align: center;">text</div>
+  [right]text[/right]   => <div style="text-align: right;">text</div>
   
   [quote]text[/quote]         => <blockquote><p>text</p></blockquote>
   [quote=someone]text[/quote] => <blockquote><dl><dt>someone</dt><dd><p>text</p></dd></dl></blockquote>

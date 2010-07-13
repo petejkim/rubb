@@ -49,19 +49,19 @@ class RuBBTest < Test::Unit::TestCase
   
   def test_left
     bb   = '[left]hello[/left]'
-    html = '<span style="text-align: left;">hello</span>'
+    html = '<div style="text-align: left;">hello</div>'
     assert_equal html, bb.bb_to_html
   end
   
   def test_center
     bb   = '[center]hello[/center]'
-    html = '<span style="text-align: center;">hello</span>'
+    html = '<div style="text-align: center;">hello</div>'
     assert_equal html, bb.bb_to_html
   end
   
   def test_right
     bb   = '[right]hello[/right]'
-    html = '<span style="text-align: right;">hello</span>'
+    html = '<div style="text-align: right;">hello</div>'
     assert_equal html, bb.bb_to_html
   end
   
