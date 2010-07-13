@@ -1,6 +1,6 @@
 = RuBB
 
-BBCode Parser for Ruby.
+BBCode gem for Ruby.
 
 RuBB parses BBCode by generating a parse tree, so it is able to handle nested BBCode tags properly.
 
@@ -18,23 +18,36 @@ RuBB parses BBCode by generating a parse tree, so it is able to handle nested BB
 
 RuBB supports the following BBCode tags:
 
-  [b]text[/b]
-  [i]text[/i]
-  [u]text[/u]
-  [s]text[/s]
-  [size=10]text[/size]
-  [color=#ff0000]text[/color]
-  [center]text[/center]
-  [quote]text[/quote]
-  [quote=someone]text[/quote]
-  [url]http://github.com/petejkim/rubb/[/url]
-  [url=http://github.com/petejkim/rubb/]RuBB[/url]
-  [img]http://test.com/test.jpg[/img]
-  [img=640x480]http://test.com/test.jpg[/img]
-  [ul][li]text[/li][/ul]
-  [ol][li]text[/li][/ol]
-  [code]text[/code]
-  [table][tr][th]text[/th][/tr][tr][td]text[/td][/tr][/table]
+  [b]text[/b] => <strong>text</strong>
+  [i]text[/i] => <em>text</em>
+  [u]text[/u] => <ins>text</ins>
+  [s]text[/s] => <del>text</del>
+  
+  [size=10]text[/size]        => <span style="font-size: 10px;">text</span>
+  [color=#ff0000]text[/color] => <span style="color: #ff0000;">text</span>
+  
+  [left]text[/left]     => <span style="text-align: left;">text</span>
+  [center]text[/center] => <span style="text-align: center;">text</span>
+  [right]text[/right]   => <span style="text-align: right;">text</span>
+  
+  [quote]text[/quote]         => <blockquote><p>text</p></blockquote>
+  [quote=someone]text[/quote] => <blockquote><dl><dt>someone</dt><dd><p>text</p></dd></dl></blockquote>
+  
+  [url]http://github.com/petejkim/rubb/[/url]      => <a href="http://github.com/petejkim/rubb/">http://github.com/petejkim/rubb/</a>
+  [url=http://github.com/petejkim/rubb/]RuBB[/url] => <a href="http://github.com/petejkim/rubb/">RuBB</a>
+  
+  [email]test@test.com[/email]            => <a href="mailto:test@test.com">test@test.com</a>
+  [email=test@test.com]Test Email[/email] => <a href="mailto:test@test.com">Test Email</a>
+  
+  [img]http://test.com/test.jpg[/img]         => <img src="http://test.com/test.jpg" alt="" />
+  [img=640x480]http://test.com/test.jpg[/img] => <img src="http://test.com/test.jpg" style="width: 640px; height: 480px;" alt="" />
+  
+  [ul][li]text[/li][/ul] => <ul><li>text</li></ul>
+  [ol][li]text[/li][/ol] => <ol><li>text</li></ol>
+  
+  [code]text[/code] => <pre>text</pre>
+  
+  [table][tr][th]text[/th][/tr][tr][td]text[/td][/tr][/table] => <table><tr><th>text</th></tr><tr><td>text</td></tr></table>
 
 == Copyright
 

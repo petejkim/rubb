@@ -1,11 +1,9 @@
 module RuBB
   class Node
     attr_accessor :children
-    attr_accessor :leftover
   
     def initialize(options={})
       @children = options[:children] || []
-      @leftover = options[:leftover]
     end
   
     def <<(child)

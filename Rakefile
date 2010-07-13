@@ -6,7 +6,7 @@ begin
   
   Jeweler::Tasks.new do |s|
     s.name              = "rubb"
-    s.summary           = "BBCode Parser for Ruby that supports nested BBCode tags."
+    s.summary           = "BBCode gem for Ruby that supports nested BBCode tags."
     s.description       = s.summary
     s.homepage          = "http://github.com/petejkim/rubb"
     s.authors           = ["Peter Jihoon Kim"]

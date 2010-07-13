@@ -43,17 +43,24 @@ module RuBB
         when 'size'
           Node::Styled.new(:style_hash => {'font-size' => (extra_params[:param] ? extra_params[:param].to_f.to_s + 'px' : nil)})
         when 'color'
-          Node::Styled.new(:style_hash => {'color' => (extra_params[:param] || nil)})
+          Node::Styled.new(:style_hash => {'color' => (extra_params[:param] ? extra_params[:param].to_s : nil)})
+        when 'left'
+          Node::Styled.new(:style_hash => {'text-align' => 'left'})
         when 'center'
           Node::Styled.new(:style_hash => {'text-align' => 'center'})
+        when 'right'
+          Node::Styled.new(:style_hash => {'text-align' => 'right'})
         when 'quote'
-          Node::Quote.new(:who => (extra_params[:param] || ''))
+          Node::Quote.new(:who => (extra_params[:param] ? extra_params[:param].to_s : ''))
         when 'url'
           ignore_bbcode_in_children = true if extra_params[:param].nil?
-          Node::URL.new(:url => (extra_params[:param] || ''))
+          Node::URL.new(:url => (extra_params[:param] ? extra_params[:param].to_s : ''))
+        when 'email'
+          ignore_bbcode_in_children = true if extra_params[:param].nil?
+          Node::Email.new(:email => (extra_params[:param] ? extra_params[:param].to_s : ''))
         when 'img'
           ignore_bbcode_in_children = true
-          if(extra_params[:param] && (dimensions = extra_params[:param].split('x')).size >= 2)
+          if(extra_params[:param] && (dimensions = extra_params[:param].to_s.split('x')).size >= 2)
             Node::Image.new(:width => dimensions[0].to_i, :height => dimensions[1].to_i)
           else
             Node::Image.new
@@ -101,9 +108,9 @@ module RuBB
                     node << Node::Text.new(:text => match_data[0], :ignore_whitespace => true)
                   else
                     case tag_name
-                    when 'b', 'i', 'u', 's', 'code', 'center', 'ul', 'ol', 'table'
+                    when 'b', 'i', 'u', 's', 'code', 'left', 'center', 'right', 'ul', 'ol', 'table'
                       node << parse(code, tag_name)
-                    when 'url', 'img', 'size', 'color', 'quote'
+                    when 'url', 'email', 'img', 'size', 'color', 'quote'
                       if(tag[1] == '=' && tag.size > 2) # param is present
                         param = remove_wrapping_quotes(tag[2..(tag.size)].join(' '))
                         node << parse(code, tag_name, {:param => param})

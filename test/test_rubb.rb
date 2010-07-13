@@ -47,21 +47,33 @@ class RuBBTest < Test::Unit::TestCase
     assert_equal html, bb.bb_to_html
   end
   
+  def test_left
+    bb   = '[left]hello[/left]'
+    html = '<span style="text-align: left;">hello</span>'
+    assert_equal html, bb.bb_to_html
+  end
+  
   def test_center
     bb   = '[center]hello[/center]'
     html = '<span style="text-align: center;">hello</span>'
     assert_equal html, bb.bb_to_html
   end
   
+  def test_right
+    bb   = '[right]hello[/right]'
+    html = '<span style="text-align: right;">hello</span>'
+    assert_equal html, bb.bb_to_html
+  end
+  
   def test_quote
     bb   = '[quote]hello world![/quote]'
-    html = '<p class="rubb_quote_header">Quote:</p><blockquote><p class="rubb_quote_content">hello world!</p></blockquote>'
+    html = '<blockquote><p>hello world!</p></blockquote>'
     assert_equal html, bb.bb_to_html
   end
   
   def test_named_quote
     bb   = '[quote=raingrove]hello world![/quote]'
-    html = '<p class="rubb_quote_header">Quote:</p><blockquote><p class="rubb_quote_who">Originally Posted by <strong>raingrove</strong></p><p class="rubb_quote_content">hello world!</p></blockquote>'
+    html = '<blockquote><dl><dt>raingrove</dt><dd><p>hello world!</p></dd></dl></blockquote>'
     assert_equal html, bb.bb_to_html
   end
   
@@ -104,6 +116,18 @@ class RuBBTest < Test::Unit::TestCase
   def test_url_named_with_double_quotes
     bb   = '[url="http://test.com/"]Test[/url]'
     html = '<a href="http://test.com/">Test</a>'
+    assert_equal html, bb.bb_to_html
+  end
+  
+  def test_email_simple
+    bb   = '[email]test@test.com[/email]'
+    html = '<a href="mailto:test@test.com">test@test.com</a>'
+    assert_equal html, bb.bb_to_html
+  end
+  
+  def test_email_named
+    bb   = '[email=test@test.com]Test[/email]'
+    html = '<a href="mailto:test@test.com">Test</a>'
     assert_equal html, bb.bb_to_html
   end
   

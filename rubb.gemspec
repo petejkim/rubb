@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{rubb}
-  s.version = "0.9.1"
+  s.version = "0.9.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Peter Jihoon Kim"]
-  s.date = %q{2010-07-12}
-  s.description = %q{BBCode Parser for Ruby that supports nested BBCode tags.}
+  s.date = %q{2010-07-13}
+  s.description = %q{BBCode gem for Ruby that supports nested BBCode tags.}
   s.email = %q{raingrove@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
      "init.rb",
      "lib/rubb.rb",
      "lib/rubb/node.rb",
+     "lib/rubb/node/email.rb",
      "lib/rubb/node/image.rb",
      "lib/rubb/node/quote.rb",
      "lib/rubb/node/simple.rb",
@@ -40,7 +41,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
-  s.summary = %q{BBCode Parser for Ruby that supports nested BBCode tags.}
+  s.summary = %q{BBCode gem for Ruby that supports nested BBCode tags.}
   s.test_files = [
     "test/test_helper.rb",
      "test/test_rubb.rb"

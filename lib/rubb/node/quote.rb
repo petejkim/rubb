@@ -9,13 +9,15 @@ module RuBB
       end
       
       def to_html
-        html = '<p class="rubb_quote_header">Quote:</p><blockquote>'
-        html += "<p class=\"rubb_quote_who\">Originally Posted by <strong>#{Parser.escape_quotes(@who)}</strong></p>" unless(@who.empty?)
-        html += '<p class="rubb_quote_content">'
+        html = '<blockquote>'
+        html += "<dl><dt>#{Parser.escape_quotes(@who)}</dt><dd>" unless(@who.empty?)
+        html += '<p>'
         @children.each do |child|
           html += child ? child.to_html : ''
         end
-        html + '</p></blockquote>'
+        html += '</p>'
+        html += '</dd></dl>' unless(@who.empty?)
+        html + '</blockquote>'
       end
     end
   end
