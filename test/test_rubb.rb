@@ -17,6 +17,42 @@ class RuBBTest < Test::Unit::TestCase
     assert_equal html, bb.bb_to_html
   end
   
+  def test_h1
+    bb   = '[h1]hello[/h1]'
+    html = '<h1>hello</h1>'
+    assert_equal html, bb.bb_to_html
+  end
+
+  def test_h2
+    bb   = '[h2]hello[/h2]'
+    html = '<h2>hello</h2>'
+    assert_equal html, bb.bb_to_html
+  end
+  
+  def test_h3
+    bb   = '[h3]hello[/h3]'
+    html = '<h3>hello</h3>'
+    assert_equal html, bb.bb_to_html
+  end
+  
+  def test_h4
+    bb   = '[h4]hello[/h4]'
+    html = '<h4>hello</h4>'
+    assert_equal html, bb.bb_to_html
+  end
+  
+  def test_h5
+    bb   = '[h5]hello[/h5]'
+    html = '<h5>hello</h5>'
+    assert_equal html, bb.bb_to_html
+  end
+  
+  def test_h6
+    bb   = '[h6]hello[/h6]'
+    html = '<h6>hello</h6>'
+    assert_equal html, bb.bb_to_html
+  end
+  
   def test_b
     bb   = '[b]hello[/b]'
     html = '<strong>hello</strong>'

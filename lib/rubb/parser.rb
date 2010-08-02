@@ -27,6 +27,18 @@ module RuBB
         ignore_bbcode_in_children = false
         
         node = case current_tag_name
+        when 'h1'
+          Node::Simple.new(:html_tag_name => 'h1')
+        when 'h2'
+          Node::Simple.new(:html_tag_name => 'h2')
+        when 'h3'
+          Node::Simple.new(:html_tag_name => 'h3')
+        when 'h4'
+          Node::Simple.new(:html_tag_name => 'h4')
+        when 'h5'
+          Node::Simple.new(:html_tag_name => 'h5')
+        when 'h6'
+          Node::Simple.new(:html_tag_name => 'h6')
         when 'b'
           Node::Simple.new(:html_tag_name => 'strong')
         when 'i'
@@ -110,7 +122,7 @@ module RuBB
                     node << Node::Text.new(:text => match_data[0], :ignore_whitespace => true)
                   else
                     case tag_name
-                    when 'b', 'i', 'u', 's', 'code', 'left', 'center', 'right', 'ul', 'ol', 'table'
+                    when 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'b', 'i', 'u', 's', 'code', 'left', 'center', 'right', 'ul', 'ol', 'table'
                       node << parse(code, tag_name)
                     when 'url', 'email', 'img', 'size', 'color', 'quote'
                       if(tag[1] == '=' && tag.size > 2) # param is present
